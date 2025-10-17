@@ -1,0 +1,9 @@
+services:
+  acserver-exporter:
+    build: .
+    environment:
+      - AC_SERVER_HOST=79.137.79.153
+      - AC_SERVER_UDP_PORT=9600
+    network_mode: host
+    stdin_open: true
+    tty: true

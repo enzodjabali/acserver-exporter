@@ -1,3 +1,3 @@
-module ac-server-monitor
+module acserver-exporter
 
 go 1.21

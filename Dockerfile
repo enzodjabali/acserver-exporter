@@ -5,7 +5,7 @@ WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download || true
 
-COPY . .
+COPY *.go ./
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o acserver-exporter .
 
@@ -17,6 +17,6 @@ WORKDIR /root/
 
 COPY --from=builder /app/acserver-exporter .
 
-EXPOSE 11000/udp
+EXPOSE 9090
 
 CMD ["./acserver-exporter"]

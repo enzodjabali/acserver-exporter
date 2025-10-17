@@ -103,7 +103,7 @@ func (m *ACServerMonitor) PrintStats() {
 		sessionNames := map[int]string{0: "Booking", 1: "Practice", 2: "Qualifying", 3: "Race"}
 		sessionName := sessionNames[m.serverInfo.Session]
 		
-		fmt.Printf("📊 Server: %s | Track: %s | Mode: %s | Players: %d/%d\n",
+		fmt.Printf("Server: %s | Track: %s | Mode: %s | Players: %d/%d\n",
 			m.serverInfo.Name, m.serverInfo.Track, sessionName,
 			connectedCars, m.serverInfo.MaxClients)
 	}
@@ -203,7 +203,7 @@ func (m *ACServerMonitor) handleNewConnection(data []byte) {
 	m.totalConnections++
 	m.metricsLock.Unlock()
 	
-	fmt.Printf("👤 CONNECTED: %s (Car #%d)\n", driverName, carID)
+	fmt.Printf("CONNECTED: %s (Car #%d)\n", driverName, carID)
 }
 
 func (m *ACServerMonitor) handleConnectionClosed(data []byte) {
@@ -226,7 +226,7 @@ func (m *ACServerMonitor) handleConnectionClosed(data []byte) {
 	m.totalDisconnections++
 	m.metricsLock.Unlock()
 	
-	fmt.Printf("👋 DISCONNECTED: %s (Car #%d)\n", driverName, carID)
+	fmt.Printf("DISCONNECTED: %s (Car #%d)\n", driverName, carID)
 }
 
 func (m *ACServerMonitor) handleLapCompleted(data []byte) {
@@ -258,7 +258,7 @@ func (m *ACServerMonitor) handleLapCompleted(data []byte) {
 	}
 	m.mu.RUnlock()
 	
-	fmt.Printf("⏱️  LAP: %s - %02d:%06.3f\n", driverName, minutes, seconds)
+	fmt.Printf("LAP: %s - %02d:%06.3f\n", driverName, minutes, seconds)
 }
 
 func (m *ACServerMonitor) handleCarInfo(data []byte) {
@@ -373,7 +373,7 @@ func (m *ACServerMonitor) handleChat(data []byte) {
 	}
 	m.mu.RUnlock()
 	
-	fmt.Printf("💬 CHAT [%s]: %s\n", driverName, message)
+	fmt.Printf("CHAT [%s]: %s\n", driverName, message)
 }
 
 func (m *ACServerMonitor) GetConnectedCount() int {

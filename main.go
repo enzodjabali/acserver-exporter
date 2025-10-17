@@ -29,9 +29,9 @@ func main() {
 		metricsPort = "9090"
 	}
 	
-	fmt.Printf("🚀 Starting Assetto Corsa Prometheus Exporter\n")
-	fmt.Printf("   Target Server: %s (UDP:%d, HTTP:%d)\n", host, udpPort, httpPort)
-	fmt.Printf("   Metrics Port: %s\n\n", metricsPort)
+	fmt.Printf("Starting Assetto Corsa Prometheus Exporter\n")
+	fmt.Printf("Target Server: %s (UDP:%d, HTTP:%d)\n", host, udpPort, httpPort)
+	fmt.Printf("Metrics Port: %s\n\n", metricsPort)
 	
 	// Create monitor
 	monitor, err := NewACServerMonitor(host, udpPort, httpPort)
@@ -99,12 +99,12 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 </head>
 <body>
     <div class="container">
-        <h1>🏎️ Assetto Corsa Prometheus Exporter</h1>
+        <h1>Assetto Corsa Prometheus Exporter</h1>
         <p>This exporter collects metrics from an Assetto Corsa server and exposes them in Prometheus format.</p>
         
         <div class="links">
-            <a href="/metrics">📊 Metrics</a>
-            <a href="/health">💚 Health</a>
+            <a href="/metrics">Metrics</a>
+            <a href="/health">Health</a>
         </div>
         
         <h2>Available Metrics</h2>

@@ -29,7 +29,9 @@ docker compose up -d
 
 ```
 scrape_configs:
-  - job_name: 'assetto-corsa'
-    static_configs:
-      - targets: ['acserver-exporter:9090']
+  - job_name: 'acserver-exporter'
+      static_configs:
+      - targets:
+          - 'acserver-exporter:9090'
+    scrape_interval: 30s
 ```
